@@ -22,6 +22,8 @@ enum Architecture {
     M16C,
     N6502,
     LC87,
+    SM83,
+    RX,
     // PIC24,
     SuperH(yaxpeax_superh::SuperHDecoder),
 }
@@ -38,7 +40,8 @@ impl FromStr for Architecture {
         use Architecture::*;
         let err_str = "possible values: x86_64, x86_32, x86_16, x86:64, x86:32, x86:16, \
                                         ia64, armv7, armv7-t, armv8, avr, mips, msp430, pic17, pic18, \
-                                        m16c, 6502, lc87, {sh{,2,3,4},j2}[[+-]{be,mmu,fpu,f64,j2}]*";
+                                        m16c, 6502, lc87, sm83, rx, \
+                                        {sh{,2,3,4},j2}[[+-]{be,mmu,fpu,f64,j2}]*";
         let arch = match arch_str {
             "x86_64" | "x86:64" => X86_64,
             "x86_32" | "x86:32" => X86_32,
@@ -55,6 +58,8 @@ impl FromStr for Architecture {
             "m16c" => M16C,
             "6502" => N6502,
             "lc87" => LC87,
+            "sm83" => SM83,
+            "rx" => RX,
             //        "pic24" => PIC24,
             _ => {
                 let seg_idx = arch_str.find(&['+', '-'][..]).unwrap_or(arch_str.len());
@@ -137,6 +142,8 @@ fn main() {
         M16C => arch_02::decode_input::<yaxpeax_m16c::M16C>(&buf, &printer),
         N6502 => arch_02::decode_input::<yaxpeax_6502::N6502>(&buf, &printer),
         LC87 => arch_02::decode_input::<yaxpeax_lc87::LC87>(&buf, &printer),
+        SM83 => arch_02::decode_input::<yaxpeax_sm83::SM83>(&buf, &printer),
+        RX => arch_02::decode_input::<yaxpeax_rx::RX>(&buf, &printer),
         //        PIC24 => decode_input::<yaxpeax_pic24::PIC24>(buf),
         SuperH(decoder) => arch_02::decode_input_with_decoder::<yaxpeax_superh::SuperH>(decoder, &buf, &printer),
     }
