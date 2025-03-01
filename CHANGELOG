@@ -1,3 +1,9 @@
+## 0.2.11
+
+* yaxpeax-x86 to 2.0
+* yaxpeax-arm, yaxpeax-mps430 to yaxpeax-arch 0.3-based versions (no functional changes)
+* add sm83 and renesas rx architectures
+
 ## 0.2.10
 
 * yaxpeax-arm to 0.2
