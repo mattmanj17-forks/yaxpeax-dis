@@ -1,6 +1,6 @@
 [package]
 name = "yaxpeax-dis"
-version = "0.2.11"
+version = "0.2.12"
 authors = ["iximeow <me@iximeow.net>"]
 license = "0BSD"
 edition = "2018"
@@ -37,3 +37,4 @@ yaxpeax-x86 = { version = "2.0.0", default-features = false, features = ["fmt", 
 yaxpeax-ia64 = { version = "0.2.1" }
 yaxpeax-superh = { version = "1.0.0" }
 yaxpeax-6502 = { version = "0.0.2", features = ["std"] }
+yaxpeax-hexagon = { version = "0.1.0" }

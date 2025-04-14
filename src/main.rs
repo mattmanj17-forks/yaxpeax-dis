@@ -24,6 +24,7 @@ enum Architecture {
     LC87,
     SM83,
     RX,
+    Hexagon,
     // PIC24,
     SuperH(yaxpeax_superh::SuperHDecoder),
 }
@@ -60,6 +61,7 @@ impl FromStr for Architecture {
             "lc87" => LC87,
             "sm83" => SM83,
             "rx" => RX,
+            "hexagon" => Hexagon,
             //        "pic24" => PIC24,
             _ => {
                 let seg_idx = arch_str.find(&['+', '-'][..]).unwrap_or(arch_str.len());
@@ -144,6 +146,7 @@ fn main() {
         LC87 => arch_02::decode_input::<yaxpeax_lc87::LC87>(&buf, &printer),
         SM83 => arch_02::decode_input::<yaxpeax_sm83::SM83>(&buf, &printer),
         RX => arch_02::decode_input::<yaxpeax_rx::RX>(&buf, &printer),
+        Hexagon => arch_03::decode_input::<yaxpeax_hexagon::Hexagon>(&buf, &printer),
         //        PIC24 => decode_input::<yaxpeax_pic24::PIC24>(buf),
         SuperH(decoder) => arch_02::decode_input_with_decoder::<yaxpeax_superh::SuperH>(decoder, &buf, &printer),
     }

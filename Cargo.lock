@@ -452,7 +452,7 @@ dependencies = [
 
 [[package]]
 name = "yaxpeax-dis"
-version = "0.2.11"
+version = "0.2.12"
 dependencies = [
  "clap",
  "hex",
@@ -463,6 +463,7 @@ dependencies = [
  "yaxpeax-arch 0.3.2",
  "yaxpeax-arm",
  "yaxpeax-avr",
+ "yaxpeax-hexagon",
  "yaxpeax-ia64",
  "yaxpeax-lc87",
  "yaxpeax-m16c",
@@ -474,6 +475,16 @@ dependencies = [
  "yaxpeax-sm83",
  "yaxpeax-superh",
  "yaxpeax-x86",
+]
+
+[[package]]
+name = "yaxpeax-hexagon"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7cb64b4237713368d4a774a3fdcd197b3e0815a30c9fcce6d894d6bd371feaeb"
+dependencies = [
+ "num-traits",
+ "yaxpeax-arch 0.3.2",
 ]
 
 [[package]]
